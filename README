@@ -1,0 +1,9 @@
+
+This project offeres reusable code for socket connection in c++11.
+The content consists of 
+
+"SocketBase" class -> This is a base class with reusable code of socket connection required in building both server and client.
+
+"SocketAccept" class -> This is a derived class out of "SocketBase" class to create server. start() function in this class run a server's bind, listen and accept functionalities.   
+
+"SocketConnect" class -> This is a derived class out of "SocketBase" class to create client. start() function in this class connects the client to the server.
