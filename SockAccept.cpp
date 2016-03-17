@@ -20,23 +20,29 @@ int SockAccept::start()
 	// proceed with bind, listen and accept code implementation
 	
 	if (bind(sockDesc, (struct sockaddr *)&(sockAddr), sizeof(sockAddr)) != 0)
-    {
-        cout << "Error in bind -> " << strerror(errno) << "\n";
-        return -1;
-    }
-	return startAcceptingConnections();
+	{
+        	cout << "Error in bind -> " << strerror(errno) << "\n";
+       		return -1;
+    	}
+	if(listen(sockDesc, sBackLog) != 0)
+    	{
+        	cout << "Error in listening -> " << strerror(errno) << "\n";
+        	return -1;
+    	}
+	return 0;
 }
 
-int SockAccept::startAcceptingConnections()
+int SockAccept::acceptConnections(struct sockaddr_in* clientInfo)
 {
-    if(listen(sockDesc, sBackLog) != 0)
+    int clientSock = -1;
+    if(clientInfo == nullptr)
+    	clientSock = accept (sockDesc, nullptr, nullptr); 
+    else
     {
-        cout << "Error in listening -> " << strerror(errno) << "\n";
-        return -1;
+	socklen_t sockLen = sizeof(*clientInfo);
+	clientSock = accept (sockDesc, (struct sockaddr*)clientInfo, &sockLen); 
     }
-    clientSock = accept (sockDesc, nullptr, nullptr); 
-    
-    return 0;
+    return clientSock;
 }
 
 SockAccept::~SockAccept()

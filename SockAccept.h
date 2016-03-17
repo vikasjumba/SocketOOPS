@@ -10,14 +10,13 @@ int start() -> activate server from binding to listen and accept state.
 class SockAccept : public SocketBase
 {
 public:
-    int clientSock;
 	int sBackLog;
     SockAccept();
 	SockAccept(int port, int domain, int type, int protocol, int backLog, string ip);
-	int start();   
+	int start();  
+	int acceptConnections(struct sockaddr_in* clientInfo = nullptr); 
     ~SockAccept();
-private:
-	int startAcceptingConnections();
+
 };
 
 #endif // SOCKACCEPT_H
