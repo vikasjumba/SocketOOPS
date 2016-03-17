@@ -12,7 +12,7 @@ class SockAccept : public SocketBase
 public:
 	int sBackLog;
     SockAccept();
-	SockAccept(int port, int domain, int type, int protocol, int backLog, string ip);
+	SockAccept(int port, int domain, int type, int protocol, int backLog, string ip = "0.0.0.0");
 	int start();  
 	int acceptConnections(struct sockaddr_in* clientInfo = nullptr); 
     ~SockAccept();

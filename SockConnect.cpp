@@ -6,7 +6,7 @@ SockConnect::SockConnect()
 {
 // super class calls socket	
 }
-SockConnect::SockConnect(int port, int domain, int type, int protocol, string ip="0.0.0.0") : SocketBase(port, domain, type, protocol, ip)
+SockConnect::SockConnect(int port, int domain, int type, int protocol, string ip) : SocketBase(port, domain, type, protocol, ip)
 {
 // super class calls socket	
 }

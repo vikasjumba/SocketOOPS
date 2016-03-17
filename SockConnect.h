@@ -13,7 +13,7 @@ class SockConnect : public SocketBase
 {
 public:
     SockConnect();
-	SockConnect(int port, int domain, int type, int protocol, string ip);
+	SockConnect(int port, int domain, int type, int protocol, string ip = = "0.0.0.0");
 	int start();
     ~SockConnect();
 };

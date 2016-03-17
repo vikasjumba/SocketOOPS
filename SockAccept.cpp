@@ -5,7 +5,7 @@ SockAccept::SockAccept() : sBackLog(5)
 {
 // super class calls socket	
 }
-SockAccept::SockAccept(int port, int domain, int type, int protocol, int backLog, string ip = "0.0.0.0") : SocketBase(port, domain, type, protocol, ip), sBackLog(backLog)
+SockAccept::SockAccept(int port, int domain, int type, int protocol, int backLog, string ip) : SocketBase(port, domain, type, protocol, ip), sBackLog(backLog)
 {
 // super class calls socket	
 }
